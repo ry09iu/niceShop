@@ -1,16 +1,10 @@
 import Taro, { Component } from "@tarojs/taro";
 import { View, Button, Text, Image } from "@tarojs/components";
 import { connect } from "@tarojs/redux";
-import { AtAvatar, AtIcon } from "taro-ui";
+import { AtAvatar } from "taro-ui";
 import { add, minus, asyncAdd } from "../../actions/counter";
-import GRID_ICON1 from "@assets/images/grid_obligation.png";
-import GRID_ICON2 from "@assets/images/grid_tobeshipped.png";
-import GRID_ICON3 from "@assets/images/grid_shipped.png";
-import GRID_ICON4 from "@assets/images/grid_complete.png";
-import ROW_ICON1 from "@assets/images/menu_address.png";
-import ROW_ICON2 from "@assets/images/menu_service.png";
-import ROW_ICON3 from "@assets/images/menu_about.png";
-
+import MenuGrid from "./menuGrid";
+import Menu from "./menu";
 import "./user.scss";
 
 @connect(
@@ -38,18 +32,7 @@ class Index extends Component {
     super(props);
     this.state = {
       isLogin: false,
-      userInfo: [],
-      gridList: [
-        { title: "待付款", src: GRID_ICON1 },
-        { title: "待发货", src: GRID_ICON2 },
-        { title: "待收货", src: GRID_ICON3 },
-        { title: "待评价", src: GRID_ICON4 }
-      ],
-      menuList: [
-        { title: "收货地址", src: ROW_ICON1 },
-        { title: "联系客服", src: ROW_ICON2 },
-        { title: "关于奈斯", src: ROW_ICON3 }
-      ]
+      userInfo: []
     };
   }
 
@@ -118,51 +101,11 @@ class Index extends Component {
           )}
         </View>
 
-        <View className="user__order--wrap">
-          <View className="user__order--item-tab">
-            <Text>我的订单</Text>
-            <View className="user__order--item-tab-right">
-              <Text>查看全部</Text>
-              <View className="at-icon at-icon-chevron-right"></View>
-            </View>
-          </View>
+        {/* 我的订单 */}
+        <MenuGrid />
 
-          <View className="user__order--item-grid">
-            {gridList.map((item, index) => {
-              return (
-                <View key={index} className="user__order--item-grid-inner">
-                  <Image
-                    src={item.src}
-                    className="user__order--item-grid-icon"
-                  ></Image>
-                  <Text className="user__order--item-grid-text">
-                    {item.title}
-                  </Text>
-                </View>
-              );
-            })}
-          </View>
-        </View>
-
-        <View className="user__menu--wrap">
-          {menuList.map((item, index) => {
-            return (
-              <View key={index} className="user__menu--wrap-item">
-                <View className="user__menu--wrap-item-left">
-                  <Image
-                    src={item.src}
-                    className="user__menu--wrap-item-icon"
-                  ></Image>
-
-                  <Text className="user__menu--wrap-item-text">
-                    {item.title}
-                  </Text>
-                </View>
-                <View className="at-icon at-icon-chevron-right"></View>
-              </View>
-            );
-          })}
-        </View>
+        {/* 菜单列表 */}
+        <Menu />
       </View>
     );
   }
