@@ -17,7 +17,7 @@ const store = configStore();
 
 class App extends Component {
   config = {
-    pages: ["pages/user/user", "pages/index/index"],
+    pages: ["pages/home/home", "pages/user/user", "pages/index/index"],
     window: {
       backgroundTextStyle: "light",
       navigationBarBackgroundColor: "#fff",
@@ -32,7 +32,7 @@ class App extends Component {
       borderStyle: "white",
       list: [
         {
-          pagePath: "pages/index/index",
+          pagePath: "pages/home/home",
           iconPath: "./assets/images/tab-bar/home_normal.png",
           selectedIconPath: "./assets/images/tab-bar/home_pressed.png",
           text: "首页"

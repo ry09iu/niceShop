@@ -72,7 +72,7 @@ class Index extends Component {
   };
 
   render() {
-    const { isLogin, userInfo, gridList } = this.state;
+    const { isLogin, userInfo } = this.state;
 
     return (
       <View className="user">
