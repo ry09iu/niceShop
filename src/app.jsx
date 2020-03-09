@@ -27,20 +27,20 @@ class App extends Component {
     tabBar: {
       custom: false,
       color: "#9b9b9b",
-      selectedColor: "#485a82",
+      selectedColor: "#616161",
       backgroundColor: "white",
       borderStyle: "white",
       list: [
         {
           pagePath: "pages/index/index",
-          iconPath: "./assets/tab-bar/home_normal.png",
-          selectedIconPath: "./assets/tab-bar/home_pressed.png",
+          iconPath: "./assets/images/tab-bar/home_normal.png",
+          selectedIconPath: "./assets/images/tab-bar/home_pressed.png",
           text: "首页"
         },
         {
           pagePath: "pages/user/user",
-          iconPath: "./assets/tab-bar/user_normal.png",
-          selectedIconPath: "./assets/tab-bar/user_pressed.png",
+          iconPath: "./assets/images/tab-bar/user_normal.png",
+          selectedIconPath: "./assets/images/tab-bar/user_pressed.png",
           text: "我的"
         }
       ]
