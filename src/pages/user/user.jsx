@@ -32,6 +32,27 @@ class User extends Component {
 
   componentDidHide() {}
 
+  componentWillMount() {
+    const token = Taro.getStorageSync("token");
+    if (token) {
+      this.autoGetUserInfo();
+    }
+  }
+
+  autoGetUserInfo = () => {
+    let that = this;
+    Taro.getUserInfo({
+      success: function(res) {
+        const { encryptedData, iv } = res;
+        that.props.dispatchUserInfo({ encryptedData, iv }).then(res => {
+          that.setState({ userInfo: res, isLogin: true }, () => {
+            Taro.hideLoading();
+          });
+        });
+      }
+    });
+  };
+
   onGotUserInfo = () => {
     let that = this;
     Taro.showLoading({
@@ -41,27 +62,11 @@ class User extends Component {
     Taro.login({
       success: function(res) {
         if (res.errMsg === "login:ok") {
-          that.props
-            .dispatchUserLogin({ code: res.code })
-            .then(res => {
-              if (res.accessToken) {
-                Taro.getUserInfo({
-                  success: function(res) {
-                    const { encryptedData, iv } = res;
-                    that.props
-                      .dispatchUserInfo({ encryptedData, iv })
-                      .then(res => {
-                        that.setState({ userInfo: res, isLogin: true }, () => {
-                          Taro.hideLoading();
-                        });
-                      });
-                  }
-                });
-              }
-            })
-            .catch(err => {
-              console.log("err22---", err);
-            });
+          that.props.dispatchUserLogin({ code: res.code }).then(res => {
+            if (res.accessToken) {
+              that.autoGetUserInfo();
+            }
+          });
         }
       }
     });
