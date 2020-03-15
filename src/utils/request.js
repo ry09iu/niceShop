@@ -22,11 +22,12 @@ function updateStorage (data = {}) {
 export default async function fetch (options) {
     const { url, payload, method = 'GET', showToast = true, autoLogin = true } = options;
     const token = await getStorage('token');
-    const header = token ? { 'Authorization': token } : {};
+    const header = token && url !== API_USER_LOGIN ? { 'Authorization': token } : {};
     if (method === 'POST') {
         header['content-type'] = 'application/json';
     }
 
+    console.log('header', header);
     return Taro.request({
         url,
         method,
@@ -47,6 +48,7 @@ export default async function fetch (options) {
 
         return data;
     }).catch((err) => {
+        console.log('err ----', err);
         const defaultMsg = err.code === CODE_AUTH_EXPIRED ? '登录失效' : '请求异常';
         if (showToast) {
             Taro.showToast({
