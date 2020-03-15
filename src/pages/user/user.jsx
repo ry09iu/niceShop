@@ -1,29 +1,15 @@
 import Taro, { Component } from "@tarojs/taro";
 import { View, Button, Text, Image } from "@tarojs/components";
-import { connect } from "@tarojs/redux";
 import { AtAvatar } from "taro-ui";
-import { add, minus, asyncAdd } from "../../actions/counter";
 import MenuGrid from "./menuGrid";
 import Menu from "./menu";
+import DefAvatar from "@assets/images/default-avatar.png";
+import { connect } from "@tarojs/redux";
+import * as actions from "@actions/user";
 import "./user.scss";
 
-@connect(
-  ({ counter }) => ({
-    counter
-  }),
-  dispatch => ({
-    add() {
-      dispatch(add());
-    },
-    dec() {
-      dispatch(minus());
-    },
-    asyncAdd() {
-      dispatch(asyncAdd());
-    }
-  })
-)
-class Index extends Component {
+@connect(state => state.user, { ...actions })
+class User extends Component {
   config = {
     navigationBarTitleText: "我的"
   };
@@ -37,7 +23,7 @@ class Index extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log(this.props, nextProps);
+    // console.log(this.props, nextProps);
   }
 
   componentWillUnmount() {}
@@ -52,21 +38,26 @@ class Index extends Component {
       title: "登陆中",
       icon: "none"
     });
-    Taro.getUserInfo({
+    Taro.login({
       success: function(res) {
-        console.log(res.userInfo);
-        that.setState(
-          {
-            isLogin: true,
-            userInfo: res.userInfo
-          },
-          () => {
-            Taro.hideLoading();
-          }
-        );
-      },
-      fail: function(err) {
-        that.requestFailed();
+        if (res.errMsg === "login:ok") {
+          that.props.dispatchUserLogin({ code: res.code }).then(res => {
+            if (res.accessToken) {
+              Taro.getUserInfo({
+                success: function(res) {
+                  const { encryptedData, iv } = res;
+                  that.props
+                    .dispatchUserInfo({ encryptedData, iv })
+                    .then(res => {
+                      that.setState({ userInfo: res, isLogin: true }, () => {
+                        Taro.hideLoading();
+                      });
+                    });
+                }
+              });
+            }
+          });
+        }
       }
     });
   };
@@ -89,7 +80,7 @@ class Index extends Component {
             </View>
           ) : (
             <View className="user__header--wrap">
-              <View className="user__header--avator"></View>
+              <AtAvatar className="user__header--avator" image={DefAvatar} />
               <Button
                 className="user__header--login"
                 open-type="getUserInfo"
@@ -111,4 +102,4 @@ class Index extends Component {
   }
 }
 
-export default Index;
+export default User;

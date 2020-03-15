@@ -3,10 +3,13 @@
 
 .user__menu--wrap {
   margin-top: 16px;
-  padding: 0 30px;
+  margin-left: 2%;
+  padding: 0 3%;
   color: #313131;
   font-size: $size-text-normal;
   background: #fff;
+  width: 90%;
+  border-radius: 12px;
 
   &-item {
     display: flex;
@@ -25,9 +28,13 @@
     }
 
     &-icon {
-      width: 50px;
-      height: 50px;
+      width: 46px;
+      height: 46px;
       margin-right: 18px;
     }
   }
+}
+
+.at-icon-chevron-right {
+  color: #c1c1c1;
 }

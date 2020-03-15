@@ -22,10 +22,18 @@ const MENU_LIST = [
 
 export default class Menu extends Component {
   handleClick = menu => {
-    Taro.showToast({
-      title: menu.text + " 功能尚未实现",
-      icon: "none"
-    });
+    if (menu.key === "about") {
+      Taro.login({
+        success: function(res) {
+          console.log(res);
+        }
+      });
+    } else {
+      Taro.showToast({
+        title: menu.text + " 功能尚未实现",
+        icon: "none"
+      });
+    }
   };
 
   render() {

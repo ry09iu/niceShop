@@ -3,10 +3,13 @@
 
 .user__order--wrap {
   margin-top: 16px;
-  padding: 0 30px;
+  margin-left: 2%;
+  padding: 0 3%;
   color: #313131;
   font-size: $size-text-normal;
   background: #fff;
+  width: 90%;
+  border-radius: 12px;
 }
 
 .user__order--item {
@@ -18,7 +21,7 @@
     border-bottom: 1px solid #f8f8f8;
 
     &-right {
-      color: #616161;
+      color: $color-text-lighter;
       font-size: $size-text-small;
     }
   }
@@ -45,4 +48,8 @@
       margin-bottom: 12px;
     }
   }
+}
+
+.at-icon-chevron-right {
+  color: #c1c1c1;
 }
