@@ -1,0 +1,87 @@
+@import "~taro-ui/dist/style/components/form.scss";
+@import "~taro-ui/dist/style/components/input.scss";
+@import "~taro-ui/dist/style/components/radio.scss";
+@import "~taro-ui/dist/style/components/icon.scss";
+@import "~taro-ui/dist/style/components/button.scss";
+@import "~taro-ui/dist/style/components/loading.scss";
+@import "@styles/common.scss";
+
+.at-form::after {
+  border: 0 solid transparent;
+}
+.at-input {
+  font-size: $size-text-middle !important;
+  padding: 40px 10px;
+
+  &::after {
+    border: 0 solid #f5f5f5;
+    border-bottom-width: 1px;
+  }
+}
+
+.at-radio {
+  &::before {
+    border: none;
+  }
+  &::after {
+    border: none;
+  }
+}
+
+.at-radio__option + .at-radio__option .at-radio__option-wrap::after {
+  border: 0 solid #f5f5f5;
+  border-bottom-width: 1px;
+}
+
+.at-button {
+  margin-top: 50px;
+  width: 50%;
+
+  &--primary {
+    height: 92px;
+    border-radius: 46px;
+    border: none;
+    background: $color-secondary;
+  }
+}
+
+.user-profile__item-placeholder {
+  color: #ccc;
+  font-size: $size-text-middle;
+}
+
+.at-radio__option-container {
+  width: 18%;
+}
+
+.at-radio__title {
+  flex: 1;
+}
+.user-profile__item-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+  border-bottom: 1px solid #f5f5f5;
+}
+
+.user-profile__item-wrap-birth {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #f5f5f5;
+  padding: 40px 10px;
+}
+
+.user-profile__item-tab {
+  width: 172px;
+  margin-left: 32px;
+}
+
+.user-profile__item-input {
+  width: 81%;
+}
+
+.user-profile__item-input-birth {
+  width: 71%;
+}

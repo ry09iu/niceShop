@@ -28,13 +28,21 @@ class User extends Component {
 
   componentWillUnmount() {}
 
-  componentDidShow() {}
+  componentDidShow() {
+    this.setState({
+      userInfo: this.props.userInfo
+    });
+  }
 
   componentDidHide() {}
 
   componentWillMount() {
     const token = Taro.getStorageSync("token");
     if (token) {
+      Taro.showLoading({
+        title: "登陆中",
+        icon: "none"
+      });
       this.autoGetUserInfo();
     }
   }
@@ -72,6 +80,12 @@ class User extends Component {
     });
   };
 
+  updateUserInfo = () => {
+    Taro.navigateTo({
+      url: "/pages/user/profile/index"
+    });
+  };
+
   render() {
     const { isLogin, userInfo } = this.state;
 
@@ -80,17 +94,21 @@ class User extends Component {
         <View className="user__header">
           {isLogin ? (
             <View className="user__header--wrap">
-              <AtAvatar
+              <Image
                 className="user__header--avator is-login"
-                image={userInfo.avatarUrl}
+                src={userInfo.avatarUrl}
+                onClick={this.updateUserInfo.bind(this)}
               />
-              <Button className="user__header--login">
+              <Button
+                className="user__header--login"
+                onClick={this.updateUserInfo.bind(this)}
+              >
                 {userInfo.nickName}
               </Button>
             </View>
           ) : (
             <View className="user__header--wrap">
-              <AtAvatar className="user__header--avator" image={DefAvatar} />
+              <Image className="user__header--avator" src={DefAvatar} />
               <Button
                 className="user__header--login"
                 open-type="getUserInfo"

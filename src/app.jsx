@@ -20,7 +20,12 @@ const store = configStore();
 @connect(state => state.user, { ...actions })
 class App extends Component {
   config = {
-    pages: ["pages/home/home", "pages/user/user", "pages/index/index"],
+    pages: [
+      "pages/home/home",
+      "pages/user/user",
+      "pages/user/profile/index",
+      "pages/index/index"
+    ],
     window: {
       backgroundTextStyle: "light",
       navigationBarBackgroundColor: "#fff",
@@ -57,7 +62,6 @@ class App extends Component {
       Taro.checkSession({
         success: function(res) {
           //session_key 未过期，并且在本生命周期一直有效
-          that.toLogin(); //重新登录
         },
         fail: function() {
           // session_key 已经失效，需要重新执行登录流程

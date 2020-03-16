@@ -3,6 +3,7 @@ import { API_USER_LOGIN } from '@constants/api';
 
 const CODE_SUCCESS = 200;
 const CODE_AUTH_EXPIRED = 401;
+const CODE_ERROR = 500;
 
 function getStorage (key) {
     return Taro.getStorage({ key }).then(res => res.data).catch(() => '');
@@ -34,9 +35,12 @@ export default async function fetch (options) {
         data: payload,
         header
     }).then(async (res) => {
+        console.log(res)
         const { code, data } = res.data;
         if (code !== CODE_SUCCESS) {
             if (code === CODE_AUTH_EXPIRED) {
+                await updateStorage({});
+            } else if (code === CODE_ERROR) {
                 await updateStorage({});
             }
             return Promise.reject(res.data);
@@ -48,7 +52,6 @@ export default async function fetch (options) {
 
         return data;
     }).catch((err) => {
-        console.log('err ----', err);
         const defaultMsg = err.code === CODE_AUTH_EXPIRED ? '登录失效' : '请求异常';
         if (showToast) {
             Taro.showToast({
