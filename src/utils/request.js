@@ -1,5 +1,5 @@
 import Taro from '@tarojs/taro';
-import { API_USER_LOGIN } from '@constants/api';
+import { API_USER_LOGIN, API_USER_INFO } from '@constants/api';
 
 const CODE_SUCCESS = 200;
 const CODE_AUTH_EXPIRED = 401;
@@ -35,13 +35,19 @@ export default async function fetch (options) {
         data: payload,
         header
     }).then(async (res) => {
-        console.log(res)
+        console.log(res);
         const { code, data } = res.data;
         if (code !== CODE_SUCCESS) {
             if (code === CODE_AUTH_EXPIRED) {
                 await updateStorage({});
             } else if (code === CODE_ERROR) {
-                await updateStorage({});
+                Taro.showToast({
+                    title: '请求异常，请重试',
+                    icon: 'none'
+                });
+                if (url === API_USER_LOGIN || url === API_USER_INFO) {
+                    await updateStorage({});
+                }
             }
             return Promise.reject(res.data);
         }

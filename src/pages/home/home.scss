@@ -1,8 +1,23 @@
-@import "~taro-ui/dist/style/components/search-bar.scss";
-@import "~taro-ui/dist/style/components/button.scss";
 @import "~taro-ui/dist/style/components/icon.scss";
 @import "@styles/common.scss";
 
 page {
   background: #fff;
+}
+
+.home__header {
+  padding: 2% 6%;
+
+  &-search {
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+    height: 72px;
+    background: #f9f9f9;
+    border-radius: 34px;
+  }
+}
+
+.at-icon-search {
+  color: #cfcfcf;
 }

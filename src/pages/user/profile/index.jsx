@@ -15,9 +15,9 @@ class Profile extends Component {
     super(...arguments);
     this.state = {
       gender: "",
-      dateSel: "请设置生日信息，保存后将不可更改",
+      dateSel: "",
       curDate: "2020-01-01",
-      dateColor: "#ccc"
+      dateColor: ""
     };
     this.info = {};
   }
@@ -26,8 +26,8 @@ class Profile extends Component {
     const { gender, birthday } = this.props.userInfo;
     this.setState({
       gender: String(gender),
-      dateSel: String(birthday),
-      dateColor: "#333"
+      dateSel: birthday ? String(birthday) : "请设置生日信息，保存后将不可更改",
+      dateColor: birthday ? "#333" : "#ccc"
     });
   }
 

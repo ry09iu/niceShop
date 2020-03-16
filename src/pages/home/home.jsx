@@ -1,26 +1,10 @@
 import Taro, { Component } from "@tarojs/taro";
 import { View, Button, Text, Image } from "@tarojs/components";
-import { connect } from "@tarojs/redux";
-import { AtSearchBar } from "taro-ui";
-import { add, minus, asyncAdd } from "../../actions/counter";
+import Banner from "./banner";
+import Tips from "./tips";
+import MenuGrid from "./menuGrid";
 import "./home.scss";
 
-@connect(
-  ({ counter }) => ({
-    counter
-  }),
-  dispatch => ({
-    add() {
-      dispatch(add());
-    },
-    dec() {
-      dispatch(minus());
-    },
-    asyncAdd() {
-      dispatch(asyncAdd());
-    }
-  })
-)
 class Index extends Component {
   config = {
     navigationBarTitleText: "奈斯数码商城"
@@ -53,11 +37,13 @@ class Index extends Component {
     return (
       <View className="home">
         <View className="home__header">
-          <AtSearchBar
-            value={this.state.value}
-            onChange={this.onChange.bind(this)}
-          />
+          <View className="home__header-search">
+            <View className="at-icon at-icon-search"></View>
+          </View>
         </View>
+        <Banner />
+        <Tips />
+        <MenuGrid />
       </View>
     );
   }

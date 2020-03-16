@@ -18,7 +18,7 @@ class User extends Component {
     super(props);
     this.state = {
       isLogin: false,
-      userInfo: []
+      userInfos: []
     };
   }
 
@@ -30,7 +30,7 @@ class User extends Component {
 
   componentDidShow() {
     this.setState({
-      userInfo: this.props.userInfo
+      userInfos: this.props.userInfo
     });
   }
 
@@ -52,11 +52,16 @@ class User extends Component {
     Taro.getUserInfo({
       success: function(res) {
         const { encryptedData, iv } = res;
-        that.props.dispatchUserInfo({ encryptedData, iv }).then(res => {
-          that.setState({ userInfo: res, isLogin: true }, () => {
-            Taro.hideLoading();
+        that.props
+          .dispatchUserInfo({ encryptedData, iv })
+          .then(res => {
+            that.setState({ userInfos: res, isLogin: true }, () => {
+              Taro.hideLoading();
+            });
+          })
+          .catch(err => {
+            console.log("err", err);
           });
-        });
       }
     });
   };
@@ -87,7 +92,7 @@ class User extends Component {
   };
 
   render() {
-    const { isLogin, userInfo } = this.state;
+    const { isLogin, userInfos } = this.state;
 
     return (
       <View className="user">
@@ -96,14 +101,14 @@ class User extends Component {
             <View className="user__header--wrap">
               <Image
                 className="user__header--avator is-login"
-                src={userInfo.avatarUrl}
+                src={userInfos.avatarUrl}
                 onClick={this.updateUserInfo.bind(this)}
               />
               <Button
                 className="user__header--login"
                 onClick={this.updateUserInfo.bind(this)}
               >
-                {userInfo.nickName}
+                {userInfos.nickName}
               </Button>
             </View>
           ) : (

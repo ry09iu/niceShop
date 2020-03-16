@@ -1,0 +1,26 @@
+@import "@styles/common.scss";
+
+.home__tips-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 50px;
+  height: 40px;
+  font-size: 22px;
+  color: #bbb;
+
+  &-inner {
+    display: flex;
+    align-items: center;
+  }
+
+  &-icon {
+    width: 22px;
+    height: 22px;
+    margin-right: 8px;
+  }
+
+  &-text {
+    font-weight: 500;
+  }
+}
