@@ -5,23 +5,11 @@ import "./index.scss";
 const AD_LIST = [
   {
     id: 1,
-    image_url: require("./assets/1.png")
+    image_url: require("./assets/1.jpg")
   },
   {
-    id: 2,
-    image_url: require("./assets/2.jpg")
-  },
-  {
-    id: 3,
-    image_url: require("./assets/3.jpg")
-  },
-  {
-    id: 4,
-    image_url: require("./assets/4.png")
-  },
-  {
-    id: 5,
-    image_url: require("./assets/5.png")
+    id: 6,
+    image_url: require("./assets/6.jpg")
   }
 ];
 

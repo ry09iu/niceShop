@@ -3,6 +3,8 @@ import { View, Button, Text, Image } from "@tarojs/components";
 import Banner from "./banner";
 import Tips from "./tips";
 import MenuGrid from "./menuGrid";
+import Popular from "./popular";
+import Recommend from "./recommend";
 import "./home.scss";
 
 class Index extends Component {
@@ -44,6 +46,8 @@ class Index extends Component {
         <Banner />
         <Tips />
         <MenuGrid />
+        <Popular />
+        <Recommend />
       </View>
     );
   }

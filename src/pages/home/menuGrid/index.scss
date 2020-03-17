@@ -12,24 +12,11 @@
 }
 
 .user__order--item {
-  &-tab {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 80px;
-    border-bottom: 1px solid #f8f8f8;
-
-    &-right {
-      color: $color-text-lighter;
-      font-size: $size-text-small;
-    }
-  }
-
   &-grid {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 160px;
+    height: 168px;
     color: #616161;
     font-size: $size-text-small;
     padding: 0 30px;
