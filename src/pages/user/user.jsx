@@ -61,7 +61,7 @@ class User extends Component {
           })
           .catch(err => {
             console.log("err", err);
-            if (err.code === 401) {
+            if (err.code === 401 || err.errMsg.indexOf("request:fail") > -1) {
               Taro.hideLoading();
               Taro.showToast({
                 title: "授权失效，请重新登录",

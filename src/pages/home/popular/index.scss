@@ -1,6 +1,10 @@
 @import "~taro-ui/dist/style/components/icon.scss";
 @import "@styles/common.scss";
 
+.popular {
+  padding-bottom: 15px;
+}
+
 .popular__wrap {
   display: flex;
   justify-content: space-between;

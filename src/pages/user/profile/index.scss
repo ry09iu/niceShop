@@ -6,11 +6,18 @@
 @import "~taro-ui/dist/style/components/loading.scss";
 @import "@styles/common.scss";
 
+page {
+  font-size: $size-text-normal !important;
+}
+
+.user-profile {
+  padding: 0 12px;
+}
+
 .at-form::after {
   border: 0 solid transparent;
 }
 .at-input {
-  font-size: $size-text-middle !important;
   padding: 40px 10px;
 
   &::after {
@@ -47,7 +54,7 @@
 
 .user-profile__item-placeholder {
   color: #ccc;
-  font-size: $size-text-middle;
+  font-size: $size-text-normal;
 }
 
 .at-radio__option-container {
@@ -55,8 +62,18 @@
 }
 
 .at-radio__title {
+  font-size: $size-text-normal;
   flex: 1;
 }
+
+.at-input__title {
+  font-size: $size-text-normal;
+}
+
+.at-input input {
+  font-size: $size-text-normal;
+}
+
 .user-profile__item-wrap {
   display: flex;
   justify-content: space-between;

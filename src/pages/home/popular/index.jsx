@@ -5,7 +5,7 @@ import "./index.scss";
 const POPULAR_LIST = [
   {
     id: 1,
-    image_url: require("./assets/r1.png")
+    image_url: require("./assets/r1.jpg")
   },
   {
     id: 2,

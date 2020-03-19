@@ -43,7 +43,6 @@ class Profile extends Component {
   }
 
   onSubmit(event) {
-    console.log(this.info);
     let that = this;
     Taro.showLoading({
       title: "提交中",
