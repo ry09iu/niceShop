@@ -21,7 +21,7 @@ const RECOMMEND_LIST = [
     price: "2099",
     oriPrice: "2299",
     paidNum: 231,
-    image_url: require("./assets/com3.png")
+    image_url: require("./assets/com3.jpg")
   },
   {
     spu_id: 3,

@@ -22,6 +22,8 @@ class App extends Component {
   config = {
     pages: [
       "pages/home/home",
+      "pages/category/category",
+      "pages/store/store",
       "pages/user/user",
       "pages/user/profile/index",
       "pages/index/index"
@@ -44,6 +46,12 @@ class App extends Component {
           iconPath: "./assets/images/tab-bar/home_normal.png",
           selectedIconPath: "./assets/images/tab-bar/home_pressed.png",
           text: "首页"
+        },
+        {
+          pagePath: "pages/category/category",
+          iconPath: "./assets/images/tab-bar/category_normal.png",
+          selectedIconPath: "./assets/images/tab-bar/category_pressed.png",
+          text: "分类"
         },
         {
           pagePath: "pages/user/user",
