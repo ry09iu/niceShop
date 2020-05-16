@@ -72,24 +72,24 @@ class MenuSub extends Component {
     });
   };
 
-  showStorePage = () => {
+  showStorePage = id => {
     Taro.navigateTo({
-      url: "/pages/store/store"
+      url: `/pages/store/store?itemId=${id}`
     });
   };
 
   render() {
-    const { subList } = this.props;
+    const { subMenu } = this.props;
 
     return (
       <View className="menu-sub">
-        <View className="menu-sub__title">{subList.title}</View>
-        {subList.list.map(item => {
+        <View className="menu-sub__title">{subMenu.title}</View>
+        {subMenu.list.map(item => {
           return (
             <View
               className="menu-sub__item"
               key={item.spu_id}
-              onClick={this.showStorePage.bind(this)}
+              onClick={this.showStorePage.bind(this, item.spu_id)}
             >
               <View className="menu-sub__item-wrap">
                 <Image

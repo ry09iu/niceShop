@@ -21,8 +21,8 @@ const store = configStore();
 class App extends Component {
   config = {
     pages: [
-      "pages/home/home",
       "pages/category/category",
+      "pages/home/home",
       "pages/store/store",
       "pages/user/user",
       "pages/user/profile/index",

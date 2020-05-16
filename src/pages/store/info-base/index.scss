@@ -1,0 +1,46 @@
+@import "@styles/common.scss";
+
+.info-base {
+  padding: 12px 5% 32px;
+  background: #fff;
+
+  &__price {
+    display: flex;
+    align-items: flex-end;
+
+    &-symbol {
+      line-height: 28px;
+      font-size: 26px;
+      color: $color-secondary2;
+      font-weight: bolder;
+    }
+
+    &-txt {
+      margin-left: 4px;
+      line-height: 50px;
+      color: $color-secondary2;
+      font-size: 50px;
+      font-weight: bolder;
+
+      &-ori {
+        margin-left: 12px;
+        line-height: 28px;
+        color: $color-text-bright;
+        font-size: $size-text-small;
+        text-decoration: line-through;
+      }
+    }
+  }
+
+  &__title {
+    margin-top: 28px;
+    font-size: $size-text-normal;
+    font-weight: bolder;
+  }
+
+  &__desc {
+    margin-top: 12px;
+    color: $color-text-bright;
+    font-size: $size-text-small;
+  }
+}

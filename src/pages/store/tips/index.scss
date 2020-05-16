@@ -1,0 +1,39 @@
+@import "@styles/common.scss";
+
+.info__tips {
+  display: flex;
+  margin-top: 16px;
+  padding: 32px 5%;
+  background: #fff;
+
+  &-title {
+    width: 10%;
+    font-size: $size-text-small;
+    font-weight: bolder;
+  }
+
+  &-wrap {
+    display: flex;
+    align-items: center;
+    width: 90%;
+    font-size: $size-text-small;
+    color: $color-text-light;
+
+    &-inner {
+      display: flex;
+      align-items: center;
+      margin-right: 24px;
+
+      &:first-child {
+        margin-left: 8px;
+      }
+    }
+
+    &-icon {
+      width: 22px;
+      height: 22px;
+      margin-right: 10px;
+    }
+
+  }
+}

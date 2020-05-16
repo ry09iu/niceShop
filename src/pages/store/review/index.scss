@@ -1,0 +1,44 @@
+@import "~taro-ui/dist/style/components/icon.scss";
+@import "@styles/common.scss";
+
+.info__reviews {
+  margin-top: 16px;
+  padding: 32px 5% 120px;
+  background: #fff;
+
+  &-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+
+    &-title {
+      font-size: $size-text-small;
+      font-weight: bolder;
+    }
+
+    &-right {
+      display: flex;
+      align-items: center;
+      font-size: $size-text-small;
+
+      &-info {
+        margin-right: 10px;
+        color: $color-text-light;
+      }
+    }
+  }
+
+  &-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    font-size: $size-text-small;
+    color: $color-text-light;
+  }
+}
+
+.at-icon-chevron-right {
+  color: $color-text-lighter;
+}

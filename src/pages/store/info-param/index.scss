@@ -1,0 +1,42 @@
+@import "@styles/common.scss";
+
+.info-param {
+  margin-top: 16px;
+  padding: 10px 5% 26px;
+  background: #fff;
+
+  &__items {
+    display: flex;
+    margin-top: 18px;
+
+    &-name {
+      margin-top: 18px;
+      width: 10%;
+      font-size: $size-text-small;
+      font-weight: bolder;
+    }
+
+    &-attr {
+      display: flex;
+      flex-wrap: wrap;
+      width: 90%;
+      font-size: 25px;
+
+      &-val {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 8px;
+        padding: 10px 20px;
+        height: 30px;
+        border: 1px solid #e1e1e1;
+        border-radius: 26px;
+
+        &:first-child {
+          border: 1px solid $color-secondary;
+          color: $color-secondary2;
+        }
+      }
+    }
+  }
+}
