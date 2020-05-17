@@ -21,6 +21,7 @@ const store = configStore();
 class App extends Component {
   config = {
     pages: [
+      "pages/cart/cart",
       "pages/category/category",
       "pages/home/home",
       "pages/store/store",
@@ -52,6 +53,12 @@ class App extends Component {
           iconPath: "./assets/images/tab-bar/category_normal.png",
           selectedIconPath: "./assets/images/tab-bar/category_pressed.png",
           text: "分类"
+        },
+        {
+          pagePath: "pages/cart/cart",
+          iconPath: "./assets/images/tab-bar/cart_normal.png",
+          selectedIconPath: "./assets/images/tab-bar/cart_pressed.png",
+          text: "购物车"
         },
         {
           pagePath: "pages/user/user",

@@ -1,0 +1,89 @@
+@import "@styles/common.scss";
+
+page {
+  background: $color-background;
+}
+
+.cart__item {
+  display: flex;
+  padding: 32px;
+  margin-top: 16px;
+  background: #fff;
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  &-left {
+    display: flex;
+    align-items: center;
+    width: 29%;
+
+    &-chx {
+      width: 44px;
+      height: 44px;
+    }
+
+    &-img {
+      margin-left: 16px;
+      width: 140px;
+      height: 140px;
+    }
+  }
+
+  &-right {
+    margin-left: 12px;
+    width: 71%;
+    font-size: 22px;
+
+    &-name {
+      font-size: $size-text-normal;
+    }
+
+    &-attr {
+      display: flex;
+      color: $color-text-lighter;
+    }
+
+    &-footer {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 24px;
+      font-weight: bolder;
+    }
+
+    &-price {
+      color: $color-secondary2;
+
+      &-symbol {
+        margin-top: 4px;
+        font-size: $size-text-small;
+      }
+
+      &-txt {
+        margin-left: 4px;
+        font-size: $size-text-normal;
+        font-weight: bolder;
+      }
+    }
+
+    &-add-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    &-add,
+    &-subtract {
+      width: 38px;
+      height: 38px;
+    }
+
+    &-txt {
+      width: 68px;
+      text-align: center;
+      font-size: $size-text-normal;
+      color: $color-text-light;
+    }
+  }
+}
