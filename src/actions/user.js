@@ -48,4 +48,3 @@ export const dispatchUser = payload => createAction({
     type: USER_GET,
     payload
 });
-

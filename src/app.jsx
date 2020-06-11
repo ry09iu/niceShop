@@ -21,13 +21,14 @@ const store = configStore();
 class App extends Component {
   config = {
     pages: [
+        "pages/web/index",
       "pages/cart/cart",
       "pages/category/category",
       "pages/home/home",
       "pages/store/store",
       "pages/user/user",
       "pages/user/profile/index",
-      "pages/index/index"
+      "pages/index/index",
     ],
     window: {
       backgroundTextStyle: "light",
@@ -42,6 +43,12 @@ class App extends Component {
       backgroundColor: "white",
       borderStyle: "white",
       list: [
+        {
+            pagePath: "pages/web/index",
+            iconPath: "./assets/images/tab-bar/home_normal.png",
+            selectedIconPath: "./assets/images/tab-bar/home_pressed.png",
+            text: "网页"
+          },
         {
           pagePath: "pages/home/home",
           iconPath: "./assets/images/tab-bar/home_normal.png",

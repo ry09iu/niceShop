@@ -29,34 +29,35 @@ export default async function fetch (options) {
     }
 
     console.log('header', header);
+    console.log('payload', payload)
     return Taro.request({
         url,
         method,
         data: payload,
         header
     }).then(async (res) => {
-        console.log(res);
+        console.log('结果', res);
         const { code, data } = res.data;
-        if (code !== CODE_SUCCESS) {
-            if (code === CODE_AUTH_EXPIRED) {
-                await updateStorage({});
-            } else if (code === CODE_ERROR) {
-                Taro.showToast({
-                    title: '请求异常，请重试',
-                    icon: 'none'
-                });
-                if (url === API_USER_LOGIN || url === API_USER_INFO) {
-                    await updateStorage({});
-                }
-            }
-            return Promise.reject(res.data);
-        }
+        // if (code !== CODE_SUCCESS) {
+        //     if (code === CODE_AUTH_EXPIRED) {
+        //         await updateStorage({});
+        //     } else if (code === CODE_ERROR) {
+        //         Taro.showToast({
+        //             title: '请求异常，请重试',
+        //             icon: 'none'
+        //         });
+        //         if (url === API_USER_LOGIN || url === API_USER_INFO) {
+        //             await updateStorage({});
+        //         }
+        //     }
+        //     return Promise.reject(res.data);
+        // }
 
         if (url === API_USER_LOGIN) {
             await updateStorage(data);
         }
 
-        return data;
+        return res.data;
     }).catch((err) => {
         const defaultMsg = err.code === CODE_AUTH_EXPIRED ? '登录失效' : '请求异常';
         if (showToast) {
